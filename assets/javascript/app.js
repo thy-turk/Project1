@@ -1,33 +1,33 @@
-var resortId = ["20", "25", "36", "77", "113", "120", "1673", "143", "181", "197", "220", "240", "329", 
-"330", "1435", "372", "425", "445", "456", "482", "507", "511"]
+var resortId = ["20", "25", "36", "77", "113", "120", "1673", "143", "181", "197", "220", "240", "329",
+    "330", "1435", "372", "425", "445", "456", "482", "507", "511"]
 
 var temp;
 var windSpd;
 var weather;
 
-var resortZip = 80435; //change to button value with mike drop down
-$("#test").on("click", function() {
-    $(".widget1Display") = "<div class='ots-widget'><iframe id='o28858' width='600' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + resortId[4] + "&color=b'></iframe><p><a href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>";
-    
-    var openWeatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + resortZip + ",us&units=imperial&APPID=8945840c8250c919b4821b938074f3a6"
+// var resortZip = 80435; //change to button value with mike drop down
+// $("#test").on("click", function() {
+//     $(".widget1Display") = "<div class='ots-widget'><iframe id='o28858' width='600' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + resortId[4] + "&color=b'></iframe><p><a href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>";
 
-    // Ajax call using the open weather api
-    $.ajax({
-        url: openWeatherQueryURL,
-        method: "GET"
-    })
-    .then(function(response) {
+//     var openWeatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + resortZip + ",us&units=imperial&APPID=8945840c8250c919b4821b938074f3a6"
 
-        var weatherArray = (response.list);
-        console.log(weatherArray[5]);
-        console.log(weatherArray[5].main.temp);
-        console.log(weatherArray[5].wind.speed);
-        console.log(weatherArray[5].weather[0].description);
-        temp = weatherArray[5].main.temp;
-        windSpd = weatherArray[5].wind.speed;
-        weather = weatherArray[5].weather[0].description;
-    })
-}) 
+//     // Ajax call using the open weather api
+//     $.ajax({
+//         url: openWeatherQueryURL,
+//         method: "GET"
+//     })
+//     .then(function(response) {
+
+//         var weatherArray = (response.list);
+//         console.log(weatherArray[5]);
+//         console.log(weatherArray[5].main.temp);
+//         console.log(weatherArray[5].wind.speed);
+//         console.log(weatherArray[5].weather[0].description);
+//         temp = weatherArray[5].main.temp;
+//         windSpd = weatherArray[5].wind.speed;
+//         weather = weatherArray[5].weather[0].description;
+//     })
+// }) 
 
 
 
@@ -37,3 +37,110 @@ Monarch Mtn 240, PowderHorn 329, Purgatory 330, Silverton 1435, Ski Cooper 372, 
 Vail 482, Winter Park 507, Wolf Creek 511,
 */
 
+// Hiding the widget cards on page load
+$('.row-1').hide();
+
+// What happens when the copper button is clicked
+$('#copper-btn').on("click", function () {
+
+    $('.jumbotron').hide();
+    $('.row-1').show();
+    $('#homepage-card').hide();
+
+    $('.widgetDisplay').empty();
+    $(".widgetDisplay").append("<div class='ots-widget'><iframe id='o28858' width='600' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + resortId[4] + "&color=b'></iframe><p><a href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>");
+    resortZip = "80435";
+    var openWeatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + resortZip + ",us&units=imperial&APPID=8945840c8250c919b4821b938074f3a6";
+
+    // Ajax call using the open weather api
+    $.ajax({
+        url: openWeatherQueryURL,
+        method: "GET"
+    })
+        .then(function (response) {
+
+            var weatherArray = (response.list);
+            console.log(weatherArray[5]);
+            console.log(weatherArray[5].main.temp);
+            console.log(weatherArray[5].wind.speed);
+            console.log(weatherArray[5].weather[0].description);
+            temp = weatherArray[5].main.temp;
+            windSpd = weatherArray[5].wind.speed;
+            weather = weatherArray[5].weather[0].description;
+        })
+
+
+});
+
+// What happens when the keystone button is clicked
+$('#keystone-btn').on("click", function () {
+
+    $('.jumbotron').hide();
+    $('.row-1').show();
+    $('#homepage-card').hide();
+
+    $('.widgetDisplay').empty();
+    $(".widgetDisplay").append("<div class='ots-widget'><iframe id='o28858' width='600' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + resortId[9] + "&color=b'></iframe><p><a href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>");
+    resortZip = "80435";
+    var openWeatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + resortZip + ",us&units=imperial&APPID=8945840c8250c919b4821b938074f3a6";
+
+    // Ajax call using the open weather api
+    $.ajax({
+        url: openWeatherQueryURL,
+        method: "GET"
+    })
+        .then(function (response) {
+
+            var weatherArray = (response.list);
+            console.log(weatherArray[5]);
+            console.log(weatherArray[5].main.temp);
+            console.log(weatherArray[5].wind.speed);
+            console.log(weatherArray[5].weather[0].description);
+            temp = weatherArray[5].main.temp;
+            windSpd = weatherArray[5].wind.speed;
+            weather = weatherArray[5].weather[0].description;
+        })
+
+
+});
+
+// What happens when the breck button is clicked
+$('#breckenridge-btn').on("click", function () {
+
+    $('.jumbotron').hide();
+    $('.row-1').show();
+    $('#homepage-card').hide();
+
+    $('.widgetDisplay').empty();
+    $(".widgetDisplay").append("<div class='ots-widget'><iframe id='o28858' width='600' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + resortId[3] + "&color=b'></iframe><p><a href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>");
+    
+    var openWeatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + "80424" + ",us&units=imperial&APPID=8945840c8250c919b4821b938074f3a6";
+
+    // Ajax call using the open weather api
+    $.ajax({
+        url: openWeatherQueryURL,
+        method: "GET"
+    })
+        .then(function (response) {
+
+            var weatherArray = (response.list);
+            console.log(weatherArray[5]);
+            console.log(weatherArray[5].main.temp);
+            console.log(weatherArray[5].wind.speed);
+            console.log(weatherArray[5].weather[0].description);
+            temp = weatherArray[5].main.temp;
+            windSpd = weatherArray[5].wind.speed;
+            weather = weatherArray[5].weather[0].description;
+        })
+
+
+});
+
+
+// what happens when the home button is clicked
+$('#home-btn').on("click", function () {
+    $('.row-1').hide();
+    $('.jumbotron').show();
+    $('#homepage-card').show();
+
+})
