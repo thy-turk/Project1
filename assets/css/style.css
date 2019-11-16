@@ -21,6 +21,9 @@
     margin: auto;
     overflow: hidden;
     padding: 0 3rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   
   .showcase {
@@ -196,8 +199,6 @@
   
   .menu-wrap .menu > div > div {
     text-align: center;
-    max-width: 90vw;
-    max-height: 100vh;
     opacity: 0;
     transition: opacity 0.4s ease;
   }
@@ -214,3 +215,26 @@
     text-decoration: none;
     transition: color 0.4s ease;
   }
+ .header {
+     color: white;
+     width: 100%;
+ } 
+ table {
+     width: 100%;
+ }
+
+ th {
+     margin: 50px 50px 50px 50px;
+     padding: 50px 50px 50px 50px;
+ }
+
+.card-body-snow {
+    width: 100%; 
+
+ }
+
+ .col-md-5 {
+    align-items: center;
+    width: 100%;
+
+ }

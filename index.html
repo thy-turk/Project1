@@ -11,10 +11,10 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>Document</title>
   <title>Colorado Ski and Board Report</title>
 </head>
 
@@ -32,16 +32,24 @@
     <!-- drop down menu-->
     <div class="menu-wrap">
       <input type="checkbox" class="toggler">
-      <div class="hamburger"><div></div></div>
+      <div class="hamburger">
+        <div></div>
+      </div>
       <div class="menu">
         <div>
           <div>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
+              <table>
+                  <tr class="header">
+                      <th><button type="button" class="btn btn-dark">Copper Mountain</button></th>
+                      <th><button type="button" class="btn btn-dark">Keystone</button></th>
+                      <th><button type="button" class="btn btn-dark">Breckenridge</button></th>
+                      <th><button type="button" class="btn btn-dark">Clear</button></th>
+                  </tr>
+                  <tr>
+                      <td>5</td>
+                  </tr>
+              </table>
+
           </div>
         </div>
       </div>
@@ -49,22 +57,24 @@
     <!-- display boxes-->
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
-          <div class="card row" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Snow total data here!!</h5>
-              <p class="card-text"> text</p>
+        <div class="col-md-5">
+          <div class="card row">
+          <div class="card-body-snow">
+              <h5 class="card-title">Weather and Snow conditions here!!</h5>
+              <p class="card-text">      <div class="ots-widget"><iframe id="o67307" width="200px" height="291" border="0" frameborder="0" scrolling="no"
+                src="https://www.onthesnow.com/widget/snow?resort=20&color=b&flags=1"></iframe>
+              <p>
+                <a href="https://www.onthesnow.com/colorado/arapahoe-basin-ski-area/skireport.html" target="_blank">Powered by
+                  OnTheSnow.com</a></p> </p></div>
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <!--Blank space middle-->
         </div>
-        <div class="col-md-4">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+        <div class="col-md-5">
+          <div class="card">
             <div class="card-body">
               <h5 class="card-title">Google-maps data here!!</h5>
               <div id="map"></div>
@@ -74,16 +84,19 @@
           </div>
         </div>
       </div>
-<!--TEMP PLACEMENT Widget framework that shows low and high temps and a link to see a full snow report -->
-<div class="ots-widget"><iframe id="o67307" width="300" height="291" border="0" frameborder="0" scrolling="no" 
-  src="https://www.onthesnow.com/widget/snow?resort=20&color=b&flags=1"></iframe><p>
-  <a href="https://www.onthesnow.com/colorado/arapahoe-basin-ski-area/skireport.html" target="_blank">Powered by OnTheSnow.com</a></p>
-</div>
-<!--TEMP PLACEMENT Widget that shows snow depth lifs open and snowfall -->
-<div class="ots-widget"><iframe id="o67533" width="600" height="150" border="0" frameborder="0" scrolling="no" 
-  src="https://www.onthesnow.com/widget/list?resorts=20&color=b&flags=1"></iframe><p>
-  <a href="https://www.onthesnow.com" target="_blank">Powered by OnTheSnow.com</a></p>
-</div>
+      <!--TEMP PLACEMENT Widget framework that shows low and high temps and a link to see a full snow report 
+      <div class="ots-widget"><iframe id="o67307" width="300" height="291" border="0" frameborder="0" scrolling="no"
+          src="https://www.onthesnow.com/widget/snow?resort=20&color=b&flags=1"></iframe>
+        <p>
+          <a href="https://www.onthesnow.com/colorado/arapahoe-basin-ski-area/skireport.html" target="_blank">Powered by
+            OnTheSnow.com</a></p>
+      </div>
+      TEMP PLACEMENT Widget that shows snow depth lifs open and snowfall
+      <div class="ots-widget"><iframe id="o67533" width="600" height="150" border="0" frameborder="0" scrolling="no"
+          src="https://www.onthesnow.com/widget/list?resorts=20&color=b&flags=1"></iframe>
+        <p>
+          <a href="https://www.onthesnow.com" target="_blank">Powered by OnTheSnow.com</a></p>
+      </div>-->
 
 
     </div>
