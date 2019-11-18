@@ -45,7 +45,7 @@
                 <th><button type="button" id="home-btn" class="btn btn-dark">Home</button></th>
               </tr>
               <tr>
-                <td>5</td>
+                <td></td>
               </tr>
             </table>
 
@@ -53,10 +53,6 @@
         </div>
       </div>
     </div>
-
-
-
-    
 
     <!-- Container for Bootstrap -->
     <div class="container">
@@ -70,42 +66,28 @@
       </div>
 
       <div class="card" id="homepage-card" style="width: 54rem;">
-          <img src="https://cms.coppercolorado.com/sites/copper/files/styles/default/public/2017-09/lodgingoverview_winter.jpg?itok=FNWUfWi_" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Featured Resort of the Week: Copper Mountain</p>
-          </div>
-        </div>
-
-      <!-- Code for the cards that have the widget in them -->
-      <div class="row-1">
-        <div class="col-md-5">
-          <div class="card row">
-            <div class="card-body-snow">
-              <h5 class="card-title">Weather and Snow conditions here!!</h5>
-              <p class="">
-                <div class="widgetDisplay"></div>
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-
-          <!--Blank space middle-->
-        </div>
-        <div class="col-md-5">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Google-maps data here!!</h5>
-              <div id="map"></div>
-              <p class="card-text">Map goes here</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+        <img
+          src="https://cms.coppercolorado.com/sites/copper/files/styles/default/public/2017-09/lodgingoverview_winter.jpg?itok=FNWUfWi_"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Featured Resort of the Week: Copper Mountain</p>
         </div>
       </div>
     </div>
+
+    <!-- Row for the widgets maps and weather to be displayed -->
+    <div class="row">
+      <div class="col-md-4 buffer-bottom buffer-left">
+        <div class="widgetDisplay"></div>
+      </div>
+      <div class="col-md-4">
+        <div class="mapDisplay"></div>
+      </div>
+    </div>
+
+
     <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/mapsAPI.js"></script>
 
 </body>
 
