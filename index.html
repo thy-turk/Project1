@@ -28,7 +28,7 @@
         background-position: center center;
       }
     </style>
-    <!-- drop down menu-->
+    <!-- drop down menu
     <div class="menu-wrap">
       <input type="checkbox" class="toggler">
       <div class="hamburger">
@@ -52,59 +52,133 @@
           </div>
         </div>
       </div>
+    </div>-->
+
+    <!-- Code for Jumbotron -->
+    <div class="jumbotron-ski">
+      <div class="container">
+        <h1 class="display">Need Help Finding a Resort?</h1>
+        <p class="lead">We're here to help. Click the icon in the top left to take a look at the resorts!</p>
+      </div>
     </div>
 
+    <!--Row 1-->
 
-
-    
-
-    <!-- Container for Bootstrap -->
-    <div class="container">
-
-      <!-- Code for Jumbotron -->
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Need Help Finding a Resort?</h1>
-          <p class="lead">We're here to help. Click the icon in the top left to take a look at the resorts!</p>
-        </div>
+    <div class="row title">
+      <div class="col-md-2 button">
+        <!--Button Row-->
+        <button type="button" class="btn btn-dark ">Resorts</button>
       </div>
-
-      <div class="card" id="homepage-card" style="width: 54rem;">
-          <img src="https://cms.coppercolorado.com/sites/copper/files/styles/default/public/2017-09/lodgingoverview_winter.jpg?itok=FNWUfWi_" class="card-img-top" alt="...">
+      <div class="col-md-3 button">
+        <!--widget column-->
+        <button type="button" class="btn btn-dark">Widgets</button>
+      </div>
+      <div class="col-md-3 button">
+        <!--Map column-->
+        <button type="button" class="btn btn-dark">Maps</button>
+      </div>
+      <div class="col-md-3 button">
+        <!--Condition column-->
+        <button type="button" class="btn btn-dark">Current Conditions</button>
+      </div>
+    </div>
+    <!--Row 2-->
+    <div class="row">
+      <div class="col-md-2">
+        <div class="card" style="width: 10rem;">
           <div class="card-body">
-            <p class="card-text">Featured Resort of the Week: Copper Mountain</p>
+            <button type="button" class="btn btn-dark" id=" zipCode adress resortId">Breckenridge</button>
           </div>
         </div>
-
-      <!-- Code for the cards that have the widget in them -->
-      <div class="row-1">
-        <div class="col-md-5">
-          <div class="card row">
-            <div class="card-body-snow">
-              <h5 class="card-title">Weather and Snow conditions here!!</h5>
-              <p class="">
-                <div class="widgetDisplay"></div>
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="widget1" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Widgets</h5>
           </div>
         </div>
-        <div class="col-md-2">
-
-          <!--Blank space middle-->
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="map1" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Map</h5>
+          </div>
         </div>
-        <div class="col-md-5">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Google-maps data here!!</h5>
-              <div id="map"></div>
-              <p class="card-text">Map goes here</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="condition1" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Current Conditions</h5>
           </div>
         </div>
       </div>
     </div>
+    <!--Row 3-->
+    <div class="row">
+      <div class="col-md-2 button">
+        <div class="card" style="width: 10rem;">
+          <div class="card-body">
+            <button type="button" class="btn btn-dark" id=" zipCode adress resortId">Copper Mountain</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="widget2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Widgets</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="map2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Map</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="condition2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Current Conditions</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Row 4-->
+    <div class="row">
+      <div class="col-md-2 button">
+        <div class="card" style="width: 10rem;">
+          <div class="card-body">
+            <button type="button" class="btn btn-dark" id=" zipCode adress resortId">Keystone</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="widget3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Widgets</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="map3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Map</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="condition3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Current Conditions</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <container id="chart">
+      
+    </container>
+
     <script src="assets/javascript/app.js"></script>
 
 </body>
