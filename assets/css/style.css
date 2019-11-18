@@ -247,6 +247,11 @@ th {
   width: 100%;
 
 }
-=======
+
+.buffer-bottom {
+  margin-top: 50px;
 }
->>>>>>> master
+
+.buffer-left {
+  margin-left: 30px;
+}
