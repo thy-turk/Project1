@@ -21,12 +21,6 @@ body {
   margin: auto;
   overflow: hidden;
   padding: 0 3rem;
-<<<<<<< HEAD
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-=======
->>>>>>> master
 }
 
 .showcase {
@@ -202,11 +196,8 @@ body {
 
 .menu-wrap .menu > div > div {
   text-align: center;
-<<<<<<< HEAD
-=======
   max-width: 90vw;
   max-height: 100vh;
->>>>>>> master
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -249,9 +240,13 @@ th {
 }
 
 .buffer-bottom {
-  margin-top: 50px;
+margin-top: 50px;
 }
 
 .buffer-left {
-  margin-left: 30px;
+margin-left: 30px;
+}
+
+#form-header {
+background-color: lightblue;
 }

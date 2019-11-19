@@ -73,6 +73,16 @@
           <p class="card-text">Featured Resort of the Week: Copper Mountain</p>
         </div>
       </div>
+
+      <!-- Form for taking in user address -->
+
+      <form id="addressForm">
+      <div class="form-group">
+        <label for="address"><div class="card-header" id="form-header">Enter your address here to get directions</div></label>
+        <input class="form-control" id="userAddress" placeholder="Enter Address">
+      </div>
+      <button type="submit" id="address-btn" class="btn btn-dark">Generate Map for Last Clicked Resort</button>
+      </form>
     </div>
 
     <!-- Row for the widgets maps and weather to be displayed -->
@@ -87,7 +97,6 @@
 
 
     <script src="assets/javascript/app.js"></script>
-    <script src="assets/javascript/mapsAPI.js"></script>
 
 </body>
 
