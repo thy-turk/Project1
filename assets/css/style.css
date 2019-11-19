@@ -240,6 +240,7 @@ th {
 }
 
 .buffer-bottom {
+<<<<<<< HEAD
 margin-top: 50px;
 }
 
@@ -249,4 +250,11 @@ margin-left: 30px;
 
 #form-header {
 background-color: lightblue;
+=======
+  margin-top: 50px;
+}
+
+.buffer-left {
+  margin-left: 30px;
+>>>>>>> master
 }
