@@ -13,7 +13,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <title>Document</title>
   <title>Colorado Ski and Board Report</title>
 </head>
@@ -29,7 +28,7 @@
         background-position: center center;
       }
     </style>
-    <!-- drop down menu-->
+    <!-- drop down menu
     <div class="menu-wrap">
       <input type="checkbox" class="toggler">
       <div class="hamburger">
@@ -38,69 +37,150 @@
       <div class="menu">
         <div>
           <div>
-              <table>
-                  <tr class="header">
-                      <th><button type="button" class="btn btn-dark">Copper Mountain</button></th>
-                      <th><button type="button" class="btn btn-dark">Keystone</button></th>
-                      <th><button type="button" class="btn btn-dark">Breckenridge</button></th>
-                      <th><button type="button" class="btn btn-dark">Clear</button></th>
-                  </tr>
-                  <tr>
-                      <td>5</td>
-                  </tr>
-              </table>
+            <table>
+              <tr class="header">
+                <th><button type="button" id="copper-btn" class="btn btn-dark">Copper Mountain</button></th>
+                <th><button type="button" id="keystone-btn" class="btn btn-dark">Keystone</button></th>
+                <th><button type="button" id="breckenridge-btn" class="btn btn-dark">Breckenridge</button></th>
+                <th><button type="button" id="home-btn" class="btn btn-dark">Home</button></th>
+              </tr>
+              <tr>
+                <td>5</td>
+              </tr>
+            </table>
 
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+    <!-- Code for Jumbotron -->
+    <div class="jumbotron-ski">
+      <div class="container">
+        <h1 class="display">Need Help Finding a Resort?</h1>
+        <p class="lead">We're here to help. Click the icon in the top left to take a look at the resorts!</p>
+      </div>
+    </div>
+
+    <!--Row 1-->
+
+    <div class="row title">
+      <div class="col-md-2 button">
+        <!--Button Row-->
+        <button type="button" class="btn btn-dark ">Resorts</button>
+      </div>
+      <div class="col-md-3 button">
+        <!--widget column-->
+        <button type="button" class="btn btn-dark">Widgets</button>
+      </div>
+      <div class="col-md-3 button">
+        <!--Map column-->
+        <button type="button" class="btn btn-dark">Maps</button>
+      </div>
+      <div class="col-md-3 button">
+        <!--Condition column-->
+        <button type="button" class="btn btn-dark">Current Conditions</button>
+      </div>
+    </div>
+    <!--Row 2-->
+    <div class="row">
+      <div class="col-md-2">
+        <div class="card" style="width: 10rem;">
+          <div class="card-body">
+            <button type="button" class="btn btn-dark" id=" zipCode adress resortId">Breckenridge</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="widget1" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Widgets</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="map1" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Map</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="condition1" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Current Conditions</h5>
           </div>
         </div>
       </div>
     </div>
-    <!-- display boxes-->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5">
-          <div class="card row">
-          <div class="card-body-snow">
-              <h5 class="card-title">Weather and Snow conditions here!!</h5>
-              <p class="card-text">      <div class="ots-widget"><iframe id="o67307" width="200px" height="291" border="0" frameborder="0" scrolling="no"
-                src="https://www.onthesnow.com/widget/snow?resort=20&color=b&flags=1"></iframe>
-              <p>
-                <a href="https://www.onthesnow.com/colorado/arapahoe-basin-ski-area/skireport.html" target="_blank">Powered by
-                  OnTheSnow.com</a></p> </p></div>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <!--Blank space middle-->
-        </div>
-        <div class="col-md-5">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Google-maps data here!!</h5>
-              <div id="map"></div>
-              <p class="card-text">Map goes here</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+    <!--Row 3-->
+    <div class="row">
+      <div class="col-md-2 button">
+        <div class="card" style="width: 10rem;">
+          <div class="card-body">
+            <button type="button" class="btn btn-dark" id=" zipCode adress resortId">Copper Mountain</button>
           </div>
         </div>
       </div>
-      <!--TEMP PLACEMENT Widget framework that shows low and high temps and a link to see a full snow report 
-      <div class="ots-widget"><iframe id="o67307" width="300" height="291" border="0" frameborder="0" scrolling="no"
-          src="https://www.onthesnow.com/widget/snow?resort=20&color=b&flags=1"></iframe>
-        <p>
-          <a href="https://www.onthesnow.com/colorado/arapahoe-basin-ski-area/skireport.html" target="_blank">Powered by
-            OnTheSnow.com</a></p>
+      <div class="col-md-3">
+        <div class="card" id="widget2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Widgets</h5>
+          </div>
+        </div>
       </div>
-      TEMP PLACEMENT Widget that shows snow depth lifs open and snowfall
-      <div class="ots-widget"><iframe id="o67533" width="600" height="150" border="0" frameborder="0" scrolling="no"
-          src="https://www.onthesnow.com/widget/list?resorts=20&color=b&flags=1"></iframe>
-        <p>
-          <a href="https://www.onthesnow.com" target="_blank">Powered by OnTheSnow.com</a></p>
-      </div>-->
-
-
+      <div class="col-md-3">
+        <div class="card" id="map2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Map</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="condition2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Current Conditions</h5>
+          </div>
+        </div>
+      </div>
     </div>
+    <!--Row 4-->
+    <div class="row">
+      <div class="col-md-2 button">
+        <div class="card" style="width: 10rem;">
+          <div class="card-body">
+            <button type="button" class="btn btn-dark" id=" zipCode address resortId">Keystone</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="widget3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Widgets</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="map3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Map</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card" id="condition3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Current Conditions</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <container id="chart">
+
+    </container>
+
     <script src="assets/javascript/app.js"></script>
+
 </body>
 
 </html>
