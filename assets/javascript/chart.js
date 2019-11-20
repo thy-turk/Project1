@@ -99,3 +99,5 @@ $(".resortbtn").on("click", function () {
         });
 
 });
+
+
