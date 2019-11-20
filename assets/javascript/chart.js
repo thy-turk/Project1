@@ -35,7 +35,7 @@ $('#address-btn').on("click", function() {
     // Replaces spaces in the user input so that it will work with the api
     var userAddress = userAddressRaw.split(' ').join('+');
     // We'll want to store this locally i think
-    $(".mapDisplay").html("<iframe width='450' height='250' frameborder='0' style='border:0'src='https://www.google.com/maps/embed/v1/directions?key=AIzaSyBJKhf4GEm0R7YyUP7XmfM2KgVF6cTdz6M&origin=" + userAddress + "&destination=" + resortAddress + "'allowfullscreen></iframe>")
+    $(".mapDisplay").html("<iframe width='910' height='600' frameborder='0' style='border:0'src='https://www.google.com/maps/embed/v1/directions?key=AIzaSyBJKhf4GEm0R7YyUP7XmfM2KgVF6cTdz6M&origin=" + userAddress + "&destination=" + resortAddress + "'allowfullscreen></iframe>")
     $('.mapDisplay').show();
 
 })
@@ -48,7 +48,7 @@ function homePage() {
     $('.mapDisplay').hide();
     $('.form-group').hide();
     $('#address-btn').hide();
-    $('.weatherDisplay').hide();
+    $('#weatherBox').hide();
 } 
 
 function infoPage() {
@@ -57,12 +57,12 @@ function infoPage() {
     $('#homepage-card').hide();
     $('.form-group').show();
     $('#address-btn').show();
-    $('.weatherDisplay').show();
+    $('#weatherBox').show();
 }
 
 //Updates html to reflect widget info
 function widgetCreate(a) {
-    $(".widgetDisplay").html("<div class='ots-widget'><iframe id='o28858' width='600' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + a + "&color=b'></iframe><p><a href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>");
+    $(".widgetDisplay").html("<div class='ots-widget'><iframe id='o28858' width='960' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + a + "&color=b'></iframe><p><a href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>");
 }
 
 homePage();
@@ -70,6 +70,9 @@ homePage();
 //On click for chosen resort
 $(".resortbtn").on("click", function () {
     infoPage();
+    
+    $('.mapDisplay').empty();
+    $(".toggler").prop("checked", false);
     resortAddress = this.name;
     zip = this.value;
     widget = this.id;  
@@ -92,7 +95,7 @@ $(".resortbtn").on("click", function () {
             var weather = weatherArray[5].weather[0].description;         
             
             //Changes HTML to reflect weather readings
-            $(".weatherDisplay").html("<div>Temperature:<span>" + temp + "</span></div><div>Wind Speed:<span >"+ windSpd + "</span></div><div>Weather:<span >" + weather +"</span></div>");
+            $(".weatherDisplay").html("<div>Temperature:<span> " + temp + " degrees</span></div><div>Wind Speed:<span > "+ windSpd + " mph</span></div><div>Weather Conditions:<span > " + weather +"</span></div>");
         });
 
 });
