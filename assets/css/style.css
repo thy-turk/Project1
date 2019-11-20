@@ -238,6 +238,7 @@ th {
 }
 
 .buffer-bottom {
+
 margin-top: 50px;
 }
 
@@ -252,4 +253,8 @@ background-color: lightblue;
 
 .buffer-top {
   margin-top: 20px;
+}
+
+#weatherBox {
+  width: 960px;
 }

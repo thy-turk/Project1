@@ -13,7 +13,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
   <title>Colorado Ski and Board Report</title>
 </head>
 
@@ -38,17 +37,9 @@
         <div>
           <div>
             <table>
-              <tr class="header">
-                <th><button type="button" id="copper-btn" class="btn btn-dark">Copper Mountain</button></th>
-                <th><button type="button" id="keystone-btn" class="btn btn-dark">Keystone</button></th>
-                <th><button type="button" id="breckenridge-btn" class="btn btn-dark">Breckenridge</button></th>
-                <th><button type="button" id="home-btn" class="btn btn-dark">Home</button></th>
-              </tr>
-              <tr>
-                <td></td>
+              <tr class="header" id="btnDiv">
               </tr>
             </table>
-
           </div>
         </div>
       </div>
@@ -90,11 +81,15 @@
         <div class="widgetDisplay buffer-top"></div>
       
         <div class="mapDisplay"></div>
-      
+        
+        <div class="container bg-light p-2" id="weatherBox">
+          <strong>Weather Conditions</strong>
+          <div class="weatherDisplay"></div>          
+        </div>
   </div>
 
-    <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/chart.js"></script>
 
 </body>
-
+      
 </html>
