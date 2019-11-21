@@ -62,7 +62,7 @@ function infoPage() {
 
 //Updates html to reflect widget info
 function widgetCreate(a) {
-    $(".widgetDisplay").html("<div class='ots-widget'><iframe id='o28858' width='960' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + a + "&color=b'></iframe><p><a id-'urlHide' href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>");
+    $(".widgetDisplay").html("<div class='ots-widget'><iframe id='o28858' width='960' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + a + "&color=b'></iframe><p><a id='urlHide' href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>");
 }
 
 homePage();
