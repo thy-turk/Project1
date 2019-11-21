@@ -2,7 +2,8 @@ var resorts = [
     copper = {name: "Copper Mountain", widget: 113, zip: 80443, address: "209+Ten+Mile+Cir+Frisco+CO+80443"},
     keystone = {name: "Keystone Resort", widget: 197, zip: 80435, address: "100+Dercum+Square+Keystone+CO+80435"},
     breck = {name: "Breckinridge", widget: 77, zip: 80424, address: "1599+Ski+Hill+Rd+Breckenridge+CO+80424"},
-    vail = {name: "Vail", widget: 482, zip: 81657, address: "Vail Ski Resort, Vail, CO 81657"}
+    vail = {name: "Vail", widget: 482, zip: 81657, address: "Vail Ski Resort, Vail, CO 81657"},
+    arapahoe = {name: "Arapahoe Basin", widget: 20, zip: 80435, address: "28194 US-6, Dillon, CO 80435"},
 ];
 var resortAddress = "";
 var zip = 0;
