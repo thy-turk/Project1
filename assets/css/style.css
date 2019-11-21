@@ -258,3 +258,7 @@ background-color: lightblue;
 #weatherBox {
   width: 960px;
 }
+
+#urlHide {
+  opacity: 0;
+}
