@@ -4,6 +4,7 @@ var resorts = [
     breck = {name: "Breckinridge", widget: 77, zip: 80424, address: "1599+Ski+Hill+Rd+Breckenridge+CO+80424"},
     vail = {name: "Vail", widget: 482, zip: 81657, address: "Vail Ski Resort, Vail, CO 81657"},
     arapahoe = {name: "Arapahoe Basin", widget: 20, zip: 80435, address: "28194 US-6, Dillon, CO 80435"},
+    beaverCreek = {name: "Beaver Creek", widget: 36, zip:81620 , address: "40 Village Rd, Avon, CO 81620"},
     aspen = {name:"Aspen", widget: 25, zip:81612, address: "602 E Dean St, Aspen, CO 81612"},
 ];
 var resortAddress = "";
@@ -101,5 +102,7 @@ $(".resortbtn").on("click", function () {
         });
 
 });
+
+var autocomplete = new google.maps.places.Autocomplete(document.getElementById('userAddress'));
 
 
