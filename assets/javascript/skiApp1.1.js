@@ -29,8 +29,12 @@ var widget = 0;
 
 resorts.forEach(function(element){ 
     console.log(element.name)
-    var newBtn = "<th><button type='button' class='btn btn-dark resortbtn' value='"+ element.zip + "' id='"+ element.widget +"' name='"+ element.address +"'>"+ element.name +"</button></th>"
-    $("#btnDiv").prepend(newBtn);    
+    count =0;
+    count++
+    if (count <= 23) {
+    var newBtn = "<button type='button' class='btn btn-dark resortbtn' value='"+ element.zip + "' id='"+ element.widget +"' name='"+ element.address +"'>"+ element.name +"</button>"
+    $("#btnDiv1").prepend(newBtn);
+    };    
 });
 
 // what happens when the home button is clicked

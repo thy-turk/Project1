@@ -39,8 +39,11 @@
         <div>
           <div>
             <table>
-              <tr class="header" id="btnDiv">
-              </tr>
+              <tr class="header" id="btnDiv1"></tr>
+              <tr class="header" id="btnDiv2"></tr>
+              <tr class="header" id="btnDiv3"></tr>
+              <tr class="header" id="btnDiv4"></tr>
+
             </table>
           </div>
         </div>
@@ -64,42 +67,42 @@
           <div class="carousel-item active">
             <img src="assets/images/arapahoebasin_05.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-<<<<<<< HEAD
-              <img src= "assets/images/arapahoebasin.jpg">
-=======
-<<<<<<< HEAD
-              <img src= "https://files.slack.com/files-pri/TN7JW9P33-FQSQB6P9A/screen_shot_2019-11-20_at_9.27.40_pm.png">
-=======
+
+              <img src="assets/images/arapahoebasin.jpg">
+
+              <img src="https://files.slack.com/files-pri/TN7JW9P33-FQSQB6P9A/screen_shot_2019-11-20_at_9.27.40_pm.png">
               <h5>Arapahoe Basin</h5>
->>>>>>> master
->>>>>>> master
+
             </div>
           </div>
           <div class="carousel-item">
             <img src="assets/images/BeaverCreek.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <img src= "assets/images/beavercreeklogo.jpg">
+              <img src="assets/images/beavercreeklogo.jpg">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/images/breckenridge.jpg" class="d-block w-100" alt="...">
+              <p>Breckenridge</p>
+            </div>
+            <div class="carousel-item">
+              <img src="assets/images/breckenridge.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <img src="assets/images/breckenridgelogo.jpg">
               </div>
-          </div>
-          <div class="carousel-item">
-            <img src="assets/images/breckenridge.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <img src= "assets/images/breckenridgelogo.jpg">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/images/vail.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <img src="assets/images/vaillogo.jpg">
               </div>
-          </div>
-          <div class="carousel-item">
-            <img src="assets/images/vail.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <img src= "assets/images/vaillogo.jpg">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/images/coppermountainjpg.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <img src="assets/images/coppermountainlogo.jpg">
               </div>
-          </div>
-          <div class="carousel-item">
-            <img src="assets/images/coppermountainjpg.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <img src= "assets/images/coppermountainlogo.jpg">
-              </div>
-          </div>
-          <!--<div class="carousel-item">
+            </div>
+            <!--<div class="carousel-item">
             <img src="assets/images/breckenridge.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <img src= "assets/images/breckenridgelogo.jpg">
@@ -109,36 +112,36 @@
         
         <!-- Form for taking in user address -->
 
-        <form id="addressForm">
-          <div class="form-group">
-            <label for="address">
-              <div class="card-header" id="form-header">Enter starting address here to get directions</div>
-            </label>
-            <input class="form-control" id="userAddress" placeholder="Enter Address">
+            <form id="addressForm">
+              <div class="form-group">
+                <label for="address">
+                  <div class="card-header" id="form-header">Enter starting address here to get directions</div>
+                </label>
+                <input class="form-control" id="userAddress" placeholder="Enter Address">
+              </div>
+              <button type="submit" id="address-btn" class="btn btn-dark">Generate Map for this Resort</button>
+            </form>
+
+
+            <!-- Row for the widgets maps and weather to be displayed -->
+
+            <div class="widgetDisplay buffer-top"></div>
+
+            <div class="mapDisplay"></div>
+
+            <div class="container bg-light p-2" id="weatherBox">
+              <strong>Weather Conditions</strong>
+              <div class="weatherDisplay"></div>
+            </div>
           </div>
-          <button type="submit" id="address-btn" class="btn btn-dark">Generate Map for this Resort</button>
-        </form>
 
-
-        <!-- Row for the widgets maps and weather to be displayed -->
-
-        <div class="widgetDisplay buffer-top"></div>
-
-        <div class="mapDisplay"></div>
-
-        <div class="container bg-light p-2" id="weatherBox">
-          <strong>Weather Conditions</strong>
-          <div class="weatherDisplay"></div>
-        </div>
-      </div>
-
-      <script src="assets/javascript/skiApp1.1.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+          <script src="assets/javascript/skiApp1.1.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
