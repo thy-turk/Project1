@@ -29,8 +29,12 @@ var widget = 0;
 
 resorts.forEach(function(element){ 
     console.log(element.name)
-    var newBtn = "<th><button type='button' class='btn btn-dark resortbtn' value='"+ element.zip + "' id='"+ element.widget +"' name='"+ element.address +"'>"+ element.name +"</button></th>"
-    $("#btnDiv").prepend(newBtn);    
+    count =0;
+    count++
+    if (count <= 23) {
+    var newBtn = "<button type='button' class='btn btn-dark resortbtn' value='"+ element.zip + "' id='"+ element.widget +"' name='"+ element.address +"'>"+ element.name +"</button>"
+    $("#btnDiv1").prepend(newBtn);
+    };    
 });
 
 // what happens when the home button is clicked
@@ -61,6 +65,7 @@ $('#address-btn').on("click", function() {
 
 function homePage() {
     $("#widgetDisplay").hide();
+    
     $('#carouselResorts').show();
     $('#homepage-card').show();
     $('.mapDisplay').hide();
@@ -70,6 +75,7 @@ function homePage() {
 } 
 
 function infoPage() {
+    $('.jumbotron').hide();
     $("#carouselResorts").hide();
     $("#widgetDisplay").show();
     $("#homepage-card").hide();
@@ -80,7 +86,7 @@ function infoPage() {
 
 //Updates html to reflect widget info
 function widgetCreate(a) {
-    $(".widgetDisplay").html("<div class='ots-widget'><iframe id='o28858' width='960' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + a + "&color=b'></iframe><p><a id='urlHide' href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>");
+    $("#widgetDisplay").html("<div class='ots-widget'><iframe id='o28858' width='960' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + a + "&color=b'></iframe><p><a id='urlHide' href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>");
 }
 
 homePage();
