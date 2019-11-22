@@ -60,8 +60,8 @@ $('#address-btn').on("click", function() {
 
 
 function homePage() {
-    $('.widgetDisplay').hide();
-    $('.jumbotron').show();
+    $("#widgetDisplay").hide();
+    $('#carouselResorts').show();
     $('#homepage-card').show();
     $('.mapDisplay').hide();
     $('.form-group').hide();
@@ -70,12 +70,12 @@ function homePage() {
 } 
 
 function infoPage() {
-    $('.jumbotron').hide();
-    $('.widgetDisplay').show();
-    $('#homepage-card').hide();
-    $('.form-group').show();
-    $('#address-btn').show();
-    $('#weatherBox').show();
+    $("#carouselResorts").hide();
+    $("#widgetDisplay").show();
+    $("#homepage-card").hide();
+    $(".form-group").show();
+    $("#address-btn").show();
+    $("#weatherBox").show();
 }
 
 //Updates html to reflect widget info
