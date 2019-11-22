@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Colorado Map</title>
+    <style>
+    #map{
+        height: 450px;
+        width: 50%;
+    }
+    </style>
+</head>
+<body>
+<h1>Colorado Map</h1>
+    <div id="map"></div>
+    <script>
+    function initMap(){
+        // Map options
+        var options = {
+            zoom:6.75,
+            center:{lat:38.8339,lng:-104.8214}
+        }
+
+        // New map
+        var map = new 
+        google.maps.Map(document.getElementById('map'), options);
+
+        // // Add Marker
+        // var marker = new google.maps.Marker({
+        //     position:{lat:39.6007,lng:-105.8525},
+        //     map:map,
+        //     icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+        //     });
+
+        //     var infoWindow = new google.maps.InfoWindow({
+        //         content:'<h1>Arapahoe Ski Basin</h1>'
+        //         });
+
+        //         marker.addListener('click', function(){
+        //             infoWindow.open(map, marker);
+        //         });
+
+
+        // Array of markers
+        var markers = [
+        {
+            coords:{lat:39.6007,lng:-105.8525},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Arapahoe Ski Basin</h1>'
+        },
+        {
+            coords:{lat:39.1116,lng:-106.865},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Aspen Highlands Ski Resort</h1>'
+        },
+        {
+            coords:{lat:39.1942,lng:-106.8209},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Aspen Mountain Ski Area</h1>'
+        },
+        {
+            coords:{lat:39.5957,lng:-106.5231},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Beaver Creek Resort</h1>'
+        },
+        {
+            coords:{lat:39.4768,lng:-106.017},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Breckenridge Ski Resort</h1>'
+        },
+        {
+            coords:{lat:39.1116,lng:-106.865},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Aspen Buttermilk Ski Area</h1>'
+        },
+        {
+            coords:{lat:39.514,lng:-106.1816},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Copper Mountain</h1>'
+        },
+        {
+            coords:{lat:38.9193,lng:-106.9654},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Crested Butte Mountain Resort</h1>'
+        },
+        {
+            coords:{lat:39.7943,lng:-105.6178},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Echo Mountain Park</h1>'
+        },
+        {
+            coords:{lat:40.0118,lng:-105.6178},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Eldora Moutain Resort</h1>'
+        },
+        {
+            coords:{lat:40.5989,lng:-106.8178},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Howelsen Hill Ski Area</h1>'
+        },
+        {
+            coords:{lat:39.590244,lng:-106.0022},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Keystone Resort</h1>'
+        },
+        {
+            coords:{lat:39.6780,lng:-105.9011},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Loveland Basin Ski Area</h1>'
+        },
+        {
+            coords:{lat:38.5561,lng:-106.2051},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Monarch Mountain</h1>'
+        },
+        {
+            coords:{lat:39.1000,lng:-108.1192},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Powderhorn Mountain Resort</h1>'
+        },
+        {
+            coords:{lat:37.2126,lng:-107.7636},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Purgatory Resort</h1>'
+        },
+        {
+            coords:{lat:37.8543,lng:-107.6215},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Silverton Mountain Ski Area</h1>'
+        },
+        {
+            coords:{lat:39.2751,lng:-106.2993},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Ski Cooper</h1>'
+        },
+        {
+            coords:{lat:39.1904,lng:-106.9477},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Snowmass Ski Resort</h1>'
+        },
+        {
+            coords:{lat:40.5989,lng:-106.8178},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Steamboat Ski Resort</h1>'
+        },
+        {
+            coords:{lat:39.6045,lng:-107.3376},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Sunlight Mountain Resort</h1>'
+        },
+        {
+            coords:{lat:37.9577,lng:-107.8821},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Telluride Ski Resort</h1>'
+        },
+        {
+            coords:{lat:39.6648,lng:-106.3935},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Vail Ski Resort</h1>'
+        },
+        {
+            coords:{lat:39.8487,lng:-105.8055},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Winter Park Resort</h1>'
+        },
+        {
+            coords:{lat:37.1604,lng:-107.0067},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content:'<h1>Wolf Creek Ski Area</h1>'
+        }
+        ];
+        
+        // Loop through markers
+        for(var i = 0;i < markers.length;i++){
+        // Add marker 
+            addMarker(markers[i]);
+        }
+
+        // Add Marker Function
+        function addMarker(props){
+        var marker = new google.maps.Marker({
+        position:props.coords,
+        map:map,
+        // icon:props.iconImage
+        });
+
+        // Check for custom Icon
+        if(props.iconImage){
+            // Set icon image
+            marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+            var infoWindow = new google.maps.InfoWindow({
+                content:props.content
+            });
+
+        marker.addListener('click', function(){
+        infoWindow.open(map, marker);
+        });
+        }
+        }
+    }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2TkHx2VgZDtwT_F32Q-pYqw_4Znp4B84&callback=initMap">
+        </script>
+
+
+</body>
+
+</html>
