@@ -38,8 +38,8 @@ $('#home-btn').on("click", function() {
     homePage();
     
     // Emptying the divs so that dups are displayed if the same resort is chosen again
-    $('.widgetDisplay').empty();
-    $('mapDisplay').empty();
+    $("#widgetDisplay").empty();
+    $(".mapDisplay").empty();
  
 });
 
