@@ -42,8 +42,8 @@ $('#home-btn').on("click", function() {
     homePage();
     
     // Emptying the divs so that dups are displayed if the same resort is chosen again
-    $('.widgetDisplay').empty();
-    $('mapDisplay').empty();
+    $("#widgetDisplay").empty();
+    $(".mapDisplay").empty();
  
 });
 
@@ -64,8 +64,9 @@ $('#address-btn').on("click", function() {
 
 
 function homePage() {
-    $('.widgetDisplay').hide();
-    $('.jumbotron').show();
+    $("#widgetDisplay").hide();
+    
+    $('#carouselResorts').show();
     $('#homepage-card').show();
     $('.mapDisplay').hide();
     $('.form-group').hide();
@@ -75,16 +76,17 @@ function homePage() {
 
 function infoPage() {
     $('.jumbotron').hide();
-    $('.widgetDisplay').show();
-    $('#homepage-card').hide();
-    $('.form-group').show();
-    $('#address-btn').show();
-    $('#weatherBox').show();
+    $("#carouselResorts").hide();
+    $("#widgetDisplay").show();
+    $("#homepage-card").hide();
+    $(".form-group").show();
+    $("#address-btn").show();
+    $("#weatherBox").show();
 }
 
 //Updates html to reflect widget info
 function widgetCreate(a) {
-    $(".widgetDisplay").html("<div class='ots-widget'><iframe id='o28858' width='960' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + a + "&color=b'></iframe><p><a id='urlHide' href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>");
+    $("#widgetDisplay").html("<div class='ots-widget'><iframe id='o28858' width='960' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + a + "&color=b'></iframe><p><a id='urlHide' href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>");
 }
 
 homePage();
