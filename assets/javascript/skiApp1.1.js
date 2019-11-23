@@ -197,6 +197,18 @@ $('#home-btn').on("click", function () {
     $(".mapDisplay").empty();
  
 });
+var userAddress = "";
+function mapMake() {
+    $('.mapDisplay').show();
+    if (userAddress.length < 4) {
+        $(".maploc").text("Please enter a valid address");
+        $(".mapDisplay").hide();
+    } else {
+        $(".maploc").empty();
+        var mapURL = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyBJKhf4GEm0R7YyUP7XmfM2KgVF6cTdz6M&origin=" + userAddress + "&destination=" + resortAddress + "";
+        $(".mapDisplay").attr("src", mapURL);
+    }
+}
 
 //Function writes map to html
 function mapMake() {

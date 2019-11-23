@@ -81,6 +81,7 @@ body {
   top: 0;
   left: 0;
   z-index: 2;
+<<<<<<< HEAD
 }
 
 .trend {
@@ -92,7 +93,12 @@ body {
   line-height: 150%;
   border-bottom-color: black;
   border-bottom-style: solid;
+=======
+>>>>>>> master
 }
+
+
+
 
 .menu-wrap .toggler {
   position: absolute;
@@ -290,4 +296,8 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center center;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master
