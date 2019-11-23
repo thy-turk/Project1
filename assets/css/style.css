@@ -90,6 +90,8 @@ body {
 .trend-head {
   font-size: 1.5rem;
   line-height: 150%;
+  border-bottom-color: black;
+  border-bottom-style: solid;
 }
 
 .menu-wrap .toggler {

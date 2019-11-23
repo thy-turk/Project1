@@ -1,4 +1,3 @@
-
 var timeFormat = 'MM/DD/YYYY HH:mm';
 
 function newDate(days) {
@@ -8,7 +7,6 @@ function newDate(days) {
 function newDateString(days) {
     return moment().add(days, 'd').format(timeFormat);
 }
-
 var color = Chart.helpers.color;
 var config = {
     type: 'line',
@@ -28,12 +26,12 @@ var config = {
             borderColor: "224, 12, 12",
             fill: false,
             data: [
-                dayOne,
-                dayTwo,
-                dayThree,
-                dayFour,
-                dayFive,
-                daySix,
+                5,
+                5,
+                6,
+                1,
+                22,
+                14,
             ],
         },{
             label: 'Dataset with point data',
@@ -87,6 +85,8 @@ window.onload = function() {
     window.myLine = new Chart(ctx, config);
 
 };
+
+
 // var resortId = ["20", "25", "36", "77", "113", "120", "1673", "143", "181", "197", "220", "240", "329",
 //     "330", "1435", "372", "425", "445", "456", "482", "507", "511"];
 

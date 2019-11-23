@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Colorado Ski and Board Report</title>
+  
+  <!--Firebase References-->
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
   <!--AJAX Reference-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!--Moment Reference-->
@@ -28,6 +32,7 @@
       <div class="hamburger">
         <div></div>
       </div>
+      <!--Divs for JS generated buttons-->
       <div class="menu">
         <div>
           <div>
@@ -46,10 +51,12 @@
       <div class="jumbotron jumbotron-fluid p-1">
         <div class="container">
           <div class="row ml-1 mt-1">
-            <div class="col-3 m-0 p-0">
+            <!--Logo Top Left-->
+            <div class="col-4 m-0 p-0">
               <img width= "75%;" height="75%;" src="assets/images/CSBR-Cropped-Logo.png">
             </div>
-            <div class="col-9 mx-0">
+            <!--Instructions-->
+            <div class="col-8 mx-0">
               <h1 class="display-4">Need Help Finding a Resort?</h1>
               <p class="lead">We're here to help. Click the icon in the top left to take a look at the resorts!</p>
             </div>   
@@ -60,7 +67,7 @@
     <div class="container">
       <div id="carouselResorts" class="carousel slide" data-ride="carousel" data-interval="5000">
         <div class="carousel-inner">
-          
+          <!--A-Basin Slide-->
           <div class="carousel-item active">
             <img width= "100%;" height="100%;" src="assets/images/abasinbg.png" class="d-block w-100" alt="...">            
             <div class="carousel-caption d-none d-md-block ">
@@ -71,19 +78,18 @@
               </div>
             </div>
           </div>
-
+          <!--Breckenridge Slide-->
           <div class="carousel-item">
             <img width= "100%;" height="100%;" src="assets/images/breckbg.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <div class="row">
-                  <div class="col-4"></div>
-                  <div class="col-4"></div>
-                  <div class="col-4"><img class="logo" src= "assets/images/brecklogo.png"></div>
-              </div>
+                <div class="col-4"></div>
+                <div class="col-4"></div>
+                <div class="col-4"><img class="logo" src= "assets/images/brecklogo.png"></div>
               </div>
             </div>
-          
-
+          </div>
+          <!--Vail Slide-->
           <div class="carousel-item">
             <img width= "100%;" height="100%;" src="assets/images/vailbg.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
@@ -94,7 +100,7 @@
               </div>
             </div>
           </div>
-
+          <!--Copper Mountain Slide-->
           <div class="carousel-item">
             <img width= "100%;" height="100%;" src="assets/images/coppbg.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
@@ -105,7 +111,7 @@
               </div>
             </div>
           </div>
-
+          <!--Monarch Slide-->
           <div class="carousel-item">
             <img width= "100%;" height="100%;" src="assets/images/monbg.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
@@ -116,23 +122,65 @@
               </div>
             </div>
           </div>
+          <!--Steamboat Slide-->
+          <div class="carousel-item">
+              <img width= "100%;" height="100%;" src="assets/images/steambg.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <div class="row">
+                  <div class="col-4"></div>
+                  <div class="col-4"></div>
+                  <div class="col-4"><img class="logo" src="assets/images/steamlogo.png"></div>
+                </div>
+              </div>
+            </div>
+
         </div>  
       </div>
+      
       <div class="row">
-          <div class="col-6 mt-3">
-            <div class="trend-head text-center bg-dark text-light">Weather Trends</div>
-            <div class="trend" id="myChart"></div>
+        <!--Weather Forecast Graph JS-->
+        <div class="col-6 my-5" id="weatherGraph">
+          <div class="trend-head text-center bg-dark text-light py-3">Weather Forecast
+            <!--Dropdown to select resort-->
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select a Resort
+              </button>
+              <!--Dropdown options filled dynamically-->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
+            </div>
           </div>
-          <div class="col-6"></div>
+          <!--Chart canvas-->
+          <div class="trend"><canvas id="myChart"></canvas></div>
+        </div>
+        
+        <!--Newsletter Column-->
+        <div class="col-6 my-5" id="news-col">
+          <div class= "trend-head text-center bg-dark text-light py-3">Sign up for our Newsletter</div>
+          <div class= "trend bg-dark p-3 text-light">
+            
+            <form>
+              <div class="forms text-center">
+                <label for="newsLett">Enter your email to join our weekly newsletter!</label>
+                <input type="email" class="form-control" id="newsLett" placeholder="Enter email">
+                <button class= "btn btn-secondary" type="button" id="newsBtn">Submit</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
       </div>
     </div>
-  
+    
+    <!--Container for info page-->
     <div class="container">
       <!--Row for the widgets maps and weather to be displayed-->
       <div class="row">
         <div class="buffer-top col-12" id="widgetDisplay">
           <div class="ots-widget">
+            <!--Iframe for widgets through src attribute-->
             <iframe id="o28858" width="100%;" height="135" scrolling="no" src=""></iframe>
+            <!--Widget URL hidden and tucked away but clickable-->
             <p class="my-n1">
               <a id='urlHide' href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a>
             </p>
@@ -141,7 +189,7 @@
       </div>
       <!--Row for weather API output-->
       <div class="row px-3">
-        <div class="bg-light col-12 " id="weatherBox">
+        <div class="bg-dark col-12 text-light" id="weatherBox">
           <strong>Weather Conditions</strong>
           <div class="weatherDisplay mr-5"></div>
         </div>
@@ -154,19 +202,22 @@
       </div> 
       <!--Row for map API output-->
       <div class="row px-3">
-        <div class="bg-light col-12 mt-3 text-center" id="mapBox">
+        <div class="bg-dark text-light col-12 mt-3 text-center" id="mapBox">
           <span class="pt-4"><strong>Driving Directions</strong></span>
           <form id="addressForm mt-n5">
               <div class="form-group">
                 <label for="address">
-                  <div class="card-header" id="form-header">Enter starting address here to get directions</div>
+                  <div class="card-header bg-secondary" id="form-header">Enter starting address here to get directions</div>
                 </label>
+                <!--Input for user address-->
                 <input class="form-control" id="userAddress" placeholder="Enter Address">
             </div>
+            <!--Map generate button-->
             <button type="submit" id="address-btn" class="btn btn-dark mt-n2 mb-2">Generate Map for this Resort</button>
           </form>
           <div class="col-12 mx-n1 my-4">
             <div class="maploc"></div>
+            <!--Iframe contains map through src attribute-->
             <iframe class="mapDisplay" width="100%;" height='600' style='border:0' src=""></iframe>
           </div>
           
@@ -174,13 +225,20 @@
       </div>
     </div>
   </div>
-  <script src="assets/javascript/skiApp1.1.js"></script>
+
+
+  <!--Chart JS Reference-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <!--AJAX JS Reference-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
+  <!--Bootstrap JS Reference-->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <!--Main JS Reference-->
+  <script src="assets/javascript/skiApp1.1.js"></script>
 </body>
 
 </html>
