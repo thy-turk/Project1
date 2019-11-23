@@ -26,7 +26,6 @@ var resortAddress = "";
 var zip = 0;
 var widget = 0;
 
-
 resorts.forEach(function(element){     
     count =0;
     count++;
@@ -45,14 +44,12 @@ $('#home-btn').on("click", function () {
     homePage();
     $(".toggler").prop("checked", false);
     // Emptying the divs so that dups are displayed if the same resort is chosen again
-    // $("#widgetDisplay").empty();
     $(".mapDisplay").empty();
  
 });
 var userAddress = "";
 function mapMake() {
     $('.mapDisplay').show();
-    console.log(userAddress.length);
     if (userAddress.length < 4) {
         $(".maploc").text("Please enter a valid address");
         $(".mapDisplay").hide();
@@ -86,7 +83,7 @@ function homePage() {
 } 
 
 function infoPage() {
-    $('.jumbotron').hide();
+    $('.jumbotron').show();
     $("#carouselResorts").hide();
     $("#widgetDisplay").show();
     $("#homepage-card").hide();

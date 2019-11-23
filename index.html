@@ -48,15 +48,23 @@
     </div>
 
     <!-- Container for Bootstrap -->
-    <div class="container">
+    
       <!-- Code for Jumbotron -->
-      <div class="jumbotron jumbotron-fluid">
+      <div class="jumbotron jumbotron-fluid p-1">
         <div class="container">
-          <h1 class="display-4">Need Help Finding a Resort?</h1>
-          <p class="lead">We're here to help. Click the icon in the top left to take a look at the resorts!</p>
+          <div class="row ml-1 mt-1">
+            <div class="col-3 m-0 p-0">
+              <img width= "75%;" height="75%; "src="assets/images/CSBR-Cropped-Logo.png">
+            </div>
+            <div class="col-9 mx-0">
+              <h1 class="display-4">Need Help Finding a Resort?</h1>
+              <p class="lead">We're here to help. Click the icon in the top left to take a look at the resorts!</p>
+            </div>   
+          </div>
         </div>
       </div>
 
+    <div class="container">
       <div id="carouselResorts" class="carousel slide" data-ride="carousel" data-interval="5000">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -147,7 +155,7 @@
       <!--Row for map API output-->
       <div class="row px-3">
         <div class="bg-light col-12 mt-3 text-center" id="mapBox">
-          <span class="p-4"><strong>Driving Directions</strong></span>
+          <span class="pt-4"><strong>Driving Directions</strong></span>
           <form id="addressForm mt-n5">
               <div class="form-group">
                 <label for="address">
