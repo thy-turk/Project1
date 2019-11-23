@@ -49,19 +49,28 @@ $('#home-btn').on("click", function () {
     $(".mapDisplay").empty();
  
 });
+var userAddress = "";
+function mapMake() {
+    $('.mapDisplay').show();
+    console.log(userAddress.length);
+    if (userAddress.length < 4) {
+        $(".maploc").text("Please enter a valid address");
+        $(".mapDisplay").hide();
+    } else {
+        $(".maploc").empty();
+        var mapURL = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyBJKhf4GEm0R7YyUP7XmfM2KgVF6cTdz6M&origin=" + userAddress + "&destination=" + resortAddress + "";
+        $(".mapDisplay").attr("src", mapURL);
+    }
+}
 
 // What happens when the address button is clicked
 $('#address-btn').on("click", function () {
     event.preventDefault();
-
-    // Takes user input from the form and stores into variable
     var userAddressRaw = $('#userAddress').val().trim();
-
+    // Takes user input from the form and stores into variable
     // Replaces spaces in the user input so that it will work with the api
-    var userAddress = userAddressRaw.split(' ').join('+');
-    // We'll want to store this locally i think
-    $(".mapDisplay").attr("src", "https://www.google.com/maps/embed/v1/directions?key=AIzaSyBJKhf4GEm0R7YyUP7XmfM2KgVF6cTdz6M&origin=" + userAddress + "&destination=" + resortAddress + "allowfullscreen")
-    $('.mapDisplay').show();
+    userAddress = userAddressRaw.split(' ').join('+');
+    mapMake();
 });
 
 function homePage() {
@@ -97,7 +106,6 @@ homePage();
 //On click for chosen resort
 $(".resortbtn").on("click", function () {
     infoPage();
-
     $('.mapDisplay').empty();
     $(".toggler").prop("checked", false);
     resortAddress = this.name;
@@ -105,7 +113,7 @@ $(".resortbtn").on("click", function () {
     widget = this.id;
 
     widgetCreate(widget);
-
+    mapMake();
     //URL for weather query
     var openWeatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",us&units=imperial&APPID=8945840c8250c919b4821b938074f3a6";
 
