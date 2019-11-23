@@ -1,35 +1,90 @@
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'radar',
+var timeFormat = 'MM/DD/YYYY HH:mm';
 
-    // The data for our dataset
+function newDate(days) {
+    return moment().add(days, 'd').toDate();
+}
+
+function newDateString(days) {
+    return moment().add(days, 'd').format(timeFormat);
+}
+var color = Chart.helpers.color;
+var config = {
+    type: 'line',
     data: {
-        labels: ['Temperature', 'Wind Speed', 'Weather Conditions'],
+        labels: [ // Date Objects
+            newDate(0),
+            newDate(1),
+            newDate(2),
+            newDate(3),
+            newDate(4),
+            newDate(5),
+            newDate(6)
+        ],
         datasets: [{
-            label: 'Resort1',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [10, 15, 25]
-        }, {
-            label: 'Resort2',
-            borderColor: 'rgb(30, 99, 132)',
-            data: [5, 20, 2] 
+            label: 'Temperature',
+            backgroundColor: color("224, 12, 12").alpha(0.5).rgbString(),
+            borderColor: "224, 12, 12",
+            fill: false,
+            data: [
+                5,
+                5,
+                6,
+                1,
+                22,
+                14,
+            ],
+        },{
+            label: 'Dataset with point data',
+            backgroundColor: color("green").alpha(0.5).rgbString(),
+            borderColor: "green",
+            fill: false,
+            data: [{
+                x: newDateString(0),
+                y: 4
+            }, {
+                x: newDateString(5),
+                y: 5
+            }, {
+                x: newDateString(7),
+                y: 6
+            }, {
+                x: newDateString(15),
+                y: 7
+            }],
         }]
     },
+    options: {
+        title: {
+            text: 'Weather Conditions this Week'
+        },
+        scales: {
+            xAxes: [{
+                type: 'time',
+                time: {
+                    parser: timeFormat,
+                    // round: 'day'
+                    tooltipFormat: 'll HH:mm'
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Date'
+                }
+            }],
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Temperature'
+                }
+            }]
+        },
+    }
+};
 
-    // Configuration options go here
-    options: {}
-});
+window.onload = function() {
+    var ctx = document.getElementById('myChart').getContext('2d');
+    window.myLine = new Chart(ctx, config);
 
-
-
-
-
-
-
-
-
-
+};
 
 
 // var resortId = ["20", "25", "36", "77", "113", "120", "1673", "143", "181", "197", "220", "240", "329",

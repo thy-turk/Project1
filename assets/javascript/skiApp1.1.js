@@ -1,3 +1,22 @@
+ // Your web app's Firebase configuration
+ var firebaseConfig = {
+    apiKey: "AIzaSyADNlXIwk-A7-qmtnfX7K9KHz03Vn8iF_s",
+    authDomain: "colorado-ski-and-board-report.firebaseapp.com",
+    databaseURL: "https://colorado-ski-and-board-report.firebaseio.com",
+    projectId: "colorado-ski-and-board-report",
+    storageBucket: "colorado-ski-and-board-report.appspot.com",
+    messagingSenderId: "1088671396203",
+    appId: "1:1088671396203:web:bf28f09b4d94a0a75e5c2e"
+  };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var database = firebase.database();
+
+//Autocomplete for chart.js
+var autocomplete = new google.maps.places.Autocomplete(document.getElementById('userAddress'));
+
+//Array to contain resort objects
 var resorts = [  
     vail = {name: "Vail", widget: 482, zip: 81657, address: "Vail Ski Resort, Vail, CO 81657"},
     wolfCreek = {name: "Wolf Creek", widget: 511, zip: 81147, address: "3821 US-160, Pagosa Springs, CO 81147"},
@@ -22,18 +41,149 @@ var resorts = [
     aspen = {name:"Aspen", widget: 25, zip: 81612, address: "602 E Dean St, Aspen, CO 81612"},
     arapahoe = {name: "Arapahoe Basin", widget: 20, zip: 80435, address: "28194 US-6, Dillon, CO 80435"},
 ];
+//Initializing value variables
 var resortAddress = "";
 var zip = 0;
 var widget = 0;
+var userAddress = "";
+var color = Chart.helpers.color;
 
+//Initializing forecast variables
+var dayOne = 0;
+var dayTwo = 0;
+var dayThree = 0;
+var dayFour = 0;
+var dayFive = 0;
+var daySix = 0;
+
+//Creates dropdown buttons for forecast and hamburger menus
 resorts.forEach(function(element){     
-    count =0;
+    count = 0;
     count++;
     if (count <= 23) {
         var newBtn = "<button type='button' class='btn btn-dark resortbtn mx-1' value='"+ element.zip + "' id='"+ element.widget +"' name='"+ element.address +"'>"+ element.name +"</button>"
         $("#btnDiv1").prepend(newBtn);
     };    
+    var dropDwnBtn = "<button class='dropDownResorts btn-sm' id='"+ element.zip +"'>"+ element.name +"</button>";
+    $(".dropdown-menu").append(dropDwnBtn);
 });
+
+//Dropdown on click for forecasts
+$(".dropDownResorts").on("click",function(){
+    var pickedZip = this.id;
+    weatherAPI(pickedZip);
+});
+
+//Function for email validation
+const validate = (email) => {
+    const expression = /(?!.*\.{2})^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    
+    if (expression.test(String(email).toLowerCase()) === false) {
+        $("#newsLett").attr("placeholder", "Please use a valid email");
+    } else {
+        $("#newsLett").attr("placeholder", "Enter Email");
+        var emailUser = {
+            validEmail : email
+        }
+        database.ref().push(emailUser);
+    }
+}
+//Submit for newsletter email form
+$("#newsBtn").on("click", function() {
+    event.preventDefault();
+    var emailRaw = $("#newsLett").val().trim();
+    $("#newsLett").val("");
+    validate(emailRaw);
+    
+});
+
+//Function updates forecast to selected resort
+function chartUpdate(num1,num2,num3,num4,num5,num6) {
+    var chart = {
+        type: 'line',
+        data: {
+            labels: [ // Date Objects
+                newDate(0),
+                newDate(1),
+                newDate(2),
+                newDate(3),
+                newDate(4),
+                newDate(5),
+                newDate(6)
+            ],
+            datasets: [{
+                label: 'Temperature(F)',
+                backgroundColor: color("224, 12, 12").alpha(0.5).rgbString(),
+                borderColor: "255, 0, 0",
+                fill: false,
+                data: [
+                    num1,
+                    num2,
+                    num3,
+                    num4,
+                    num5,
+                    num6
+                ],
+            }],
+        },
+        options: {
+            title: {
+                text: 'Weather Conditions this Week'
+            },
+            scales: {
+                xAxes: [{
+                    type: 'time',
+                    time: {
+                        parser: timeFormat,
+                        // round: 'day'
+                        tooltipFormat: 'll HH:mm'
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Date'
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Temperature'
+                    }
+                }]
+            },
+        }
+    };
+    var ctx = document.getElementById('myChart').getContext('2d');
+    window.myLine = new Chart(ctx, chart);
+}
+//Function gets variables from weather API
+function weatherAPI(num) {
+    //URL for weather query
+    var openWeatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + num + ",us&units=imperial&APPID=8945840c8250c919b4821b938074f3a6";
+
+    // Ajax call using the open weather api
+    $.ajax({
+        url: openWeatherQueryURL,
+        method: "GET"
+    })
+        .then(function (response) {
+            //Weather variables
+            console.log(response.list);
+            var weatherArray = (response.list);
+            var temp = weatherArray[5].main.temp;
+            var windSpd = weatherArray[5].wind.speed;
+            var weather = weatherArray[5].weather[0].description;
+
+            dayOne = weatherArray[2].main.temp
+            dayTwo = weatherArray[2].main.temp;
+            dayThree = weatherArray[10].main.temp;
+            dayFour = weatherArray[18].main.temp;
+            dayFive = weatherArray[26].main.temp;
+            daySix = weatherArray[34].main.temp;
+            chartUpdate(dayOne, dayTwo, dayThree, dayFour, dayFive, daySix);
+            //Changes HTML to reflect weather readings
+            $(".weatherDisplay").html("<div>Temperature:<span> " + temp + " degrees</span></div><div>Wind Speed:<span > " + windSpd + " mph</span></div><div>Weather Conditions:<span > " + weather + "</span></div>");
+        });
+}
 
 // Create Home button
 var homeBtn = "<button type='button' class='btn btn-success' id = 'home-btn' name= 'Home'>Home</button>"
@@ -60,6 +210,19 @@ function mapMake() {
     }
 }
 
+//Function writes map to html
+function mapMake() {
+    $('.mapDisplay').show();
+    if (userAddress.length < 4) {
+        $(".maploc").text("Please enter a valid address");
+        $(".mapDisplay").hide();
+    } else {
+        $(".maploc").empty();
+        var mapURL = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyBJKhf4GEm0R7YyUP7XmfM2KgVF6cTdz6M&origin=" + userAddress + "&destination=" + resortAddress + "";
+        $(".mapDisplay").attr("src", mapURL);
+    }
+}
+
 // What happens when the address button is clicked
 $('#address-btn').on("click", function () {
     event.preventDefault();
@@ -70,6 +233,7 @@ $('#address-btn').on("click", function () {
     mapMake();
 });
 
+//Determines which info user sees
 function homePage() {
     $('.jumbotron').show();
     $("#widgetDisplay").hide();
@@ -80,6 +244,8 @@ function homePage() {
     $('#address-btn').hide();
     $("#weatherBox").hide();
     $('#mapBox').hide();
+    $("#weatherGraph").show();
+    $("#news-col").show();
 } 
 
 function infoPage() {
@@ -91,6 +257,8 @@ function infoPage() {
     $("#address-btn").show();
     $("#mapBox").show();
     $('#weatherBox').show();
+    $("#weatherGraph").hide();
+    $("#news-col").hide();
 }
 
 //Updates html to reflect widget info
@@ -98,7 +266,9 @@ function widgetCreate(a) {
     $("#o28858").attr("src", "https://www.onthesnow.com/widget/list?resorts=" + a + "&color=b");
 }
 
-homePage();
+
+
+
 
 //On click for chosen resort
 $(".resortbtn").on("click", function () {
@@ -111,27 +281,20 @@ $(".resortbtn").on("click", function () {
 
     widgetCreate(widget);
     mapMake();
-    //URL for weather query
-    var openWeatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",us&units=imperial&APPID=8945840c8250c919b4821b938074f3a6";
-
-    // Ajax call using the open weather api
-    $.ajax({
-        url: openWeatherQueryURL,
-        method: "GET"
-    })
-        .then(function (response) {
-            //Weather variables
-            var weatherArray = (response.list);
-            var temp = weatherArray[5].main.temp;
-            var windSpd = weatherArray[5].wind.speed;
-            var weather = weatherArray[5].weather[0].description;
-
-            //Changes HTML to reflect weather readings
-            $(".weatherDisplay").html("<div>Temperature:<span> " + temp + " degrees</span></div><div>Wind Speed:<span > " + windSpd + " mph</span></div><div>Weather Conditions:<span > " + weather + "</span></div>");
-        });
+    weatherAPI(zip);
 
 });
 
-var autocomplete = new google.maps.places.Autocomplete(document.getElementById('userAddress'));
+//Chart and Moment code
+var timeFormat = 'MM/DD/YYYY HH:mm';
 
+function newDate(days) {
+    return moment().add(days, 'd').toDate();
+}
 
+function newDateString(days) {
+    return moment().add(days, 'd').format(timeFormat);
+}
+
+//Calling intial page state
+homePage();

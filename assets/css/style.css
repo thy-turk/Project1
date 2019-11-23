@@ -81,6 +81,20 @@ body {
   top: 0;
   left: 0;
   z-index: 2;
+<<<<<<< HEAD
+}
+
+.trend {
+  font-size: 1.25rem;
+  line-height: 150%;
+}
+.trend-head {
+  font-size: 1.5rem;
+  line-height: 150%;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+=======
+>>>>>>> master
 }
 
 
@@ -282,4 +296,8 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center center;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master
