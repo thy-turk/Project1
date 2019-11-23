@@ -30,7 +30,6 @@ Demo Site: [This link will take you to the program](https://lucasaho.github.io/P
 ## Key Topics
 * API'S
 * Firebase
-* Moment
 * AJAX
 * Code comments
 * Console
