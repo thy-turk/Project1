@@ -5,17 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Colorado Ski and Board Report</title>
+  <!--AJAX Reference-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Moment Reference-->
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <!--AJAX Reference-->
   <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJKhf4GEm0R7YyUP7XmfM2KgVF6cTdz6M&libraries=places"></script>
+  <!--Bootstrap Reference-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Colorado Ski and Board Report</title>
+  <!--Style Reference-->
+  <link rel="stylesheet" href="assets/css/style.css">  
 </head>
 
 <body class="bg-white">
@@ -105,16 +107,23 @@
           </div>
 
           <div class="carousel-item">
-              <img width= "100%;" height="100%;" src="assets/images/monbg.png" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <div class="row">
-                  <div class="col-4"></div>
-                  <div class="col-4"></div>
-                  <div class="col-4"><img class="logo" src="assets/images/monlogo.png"></div>
-                </div>
+            <img width= "100%;" height="100%;" src="assets/images/monbg.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4"></div>
+                <div class="col-4"><img class="logo" src="assets/images/monlogo.png"></div>
               </div>
             </div>
-        </div>
+          </div>
+        </div>  
+      </div>
+      <div class="row">
+          <div class="col-6 mt-3">
+            <div class="trend-head text-center bg-dark text-light">Weather Trends</div>
+            <div class="trend" id="myChart"></div>
+          </div>
+          <div class="col-6"></div>
       </div>
     </div>
   

@@ -83,8 +83,14 @@ body {
   z-index: 2;
 }
 
-
-
+.trend {
+  font-size: 1.25rem;
+  line-height: 150%;
+}
+.trend-head {
+  font-size: 1.5rem;
+  line-height: 150%;
+}
 
 .menu-wrap .toggler {
   position: absolute;

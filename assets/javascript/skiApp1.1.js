@@ -25,6 +25,13 @@ var resorts = [
 var resortAddress = "";
 var zip = 0;
 var widget = 0;
+var dayOne = 0;
+var dayTwo = 0;
+var dayThree = 0;
+var dayFour = 0;
+var dayFive = 0;
+var daySix = 0;
+
 
 resorts.forEach(function(element){     
     count =0;
@@ -121,10 +128,18 @@ $(".resortbtn").on("click", function () {
     })
         .then(function (response) {
             //Weather variables
+            console.log(response.list);
             var weatherArray = (response.list);
             var temp = weatherArray[5].main.temp;
             var windSpd = weatherArray[5].wind.speed;
             var weather = weatherArray[5].weather[0].description;
+            
+            dayOne = weatherArray[2];
+            dayTwo = weatherArray[10];
+            dayThree = weatherArray[18];
+            dayFour = weatherArray[26];
+            dayFive = weatherArray[34];
+            daySix = weatherArray[39];
 
             //Changes HTML to reflect weather readings
             $(".weatherDisplay").html("<div>Temperature:<span> " + temp + " degrees</span></div><div>Wind Speed:<span > " + windSpd + " mph</span></div><div>Weather Conditions:<span > " + weather + "</span></div>");
@@ -134,4 +149,102 @@ $(".resortbtn").on("click", function () {
 
 var autocomplete = new google.maps.places.Autocomplete(document.getElementById('userAddress'));
 
+//Chart and Moment code
+var ctx = $('#myChart');
+var weatherTrends = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["3 days ago","2 days ago","1 day ago", "today"],
+        datasets: [{
+            label: "yis",
+        }]
+    },
+    options: options,
+});
+var timeFormat = 'MM/DD/YYYY HH:mm';
 
+function newDate(days) {
+    return moment().add(days, 'd').toDate();
+}
+
+function newDateString(days) {
+    return moment().add(days, 'd').format(timeFormat);
+}
+
+var config = {
+    type: 'line',
+    data: {
+        labels: [ // Date Objects
+            newDate(0),
+            newDate(1),
+            newDate(2),
+            newDate(3),
+            newDate(4),
+            newDate(5),
+            newDate(6)
+        ],
+        datasets: [{
+            label: 'Temperature',
+            backgroundColor: color("224, 12, 12").alpha(0.5).rgbString(),
+            borderColor: "224, 12, 12",
+            fill: false,
+            data: [
+                dayOne,
+                dayTwo,
+                dayThree,
+                dayFour,
+                dayFive,
+                daySix,
+            ],
+        },{
+            label: 'Dataset with point data',
+            backgroundColor: color("green").alpha(0.5).rgbString(),
+            borderColor: "green",
+            fill: false,
+            data: [{
+                x: newDateString(0),
+                y: 4
+            }, {
+                x: newDateString(5),
+                y: 5
+            }, {
+                x: newDateString(7),
+                y: 6
+            }, {
+                x: newDateString(15),
+                y: 7
+            }],
+        }]
+    },
+    options: {
+        title: {
+            text: 'Weather Conditions this Week'
+        },
+        scales: {
+            xAxes: [{
+                type: 'time',
+                time: {
+                    parser: timeFormat,
+                    // round: 'day'
+                    tooltipFormat: 'll HH:mm'
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Date'
+                }
+            }],
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Temperature'
+                }
+            }]
+        },
+    }
+};
+
+window.onload = function() {
+    var ctx = document.getElementById('myChart').getContext('2d');
+    window.myLine = new Chart(ctx, config);
+
+};
