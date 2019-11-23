@@ -1,26 +1,26 @@
-var resorts = [
-    copper = {name: "Copper Mountain", widget: 113, zip: 80443, address: "209+Ten+Mile+Cir+Frisco+CO+80443"},
-    keystone = {name: "Keystone Resort", widget: 197, zip: 80435, address: "100+Dercum+Square+Keystone+CO+80435"},
-    breck = {name: "Breckinridge", widget: 77, zip: 80424, address: "1599+Ski+Hill+Rd+Breckenridge+CO+80424"},
+var resorts = [  
     vail = {name: "Vail", widget: 482, zip: 81657, address: "Vail Ski Resort, Vail, CO 81657"},
-    arapahoe = {name: "Arapahoe Basin", widget: 20, zip: 80435, address: "28194 US-6, Dillon, CO 80435"},
-    beaverCreek = {name: "Beaver Creek", widget: 36, zip:81620 , address: "40 Village Rd, Avon, CO 81620"},
-    aspen = {name:"Aspen", widget: 25, zip: 81612, address: "602 E Dean St, Aspen, CO 81612"},
-    crestedButte = {name: "Crested Butte", widget: 120, zip: 81225, address: "12 Snowmass Rd, Crested Butte, CO 81225" },
-    winterPark = {name: "Winter Park", widget: 507, zip: 80482, address: "85 Parsenn Road, Winter Park, CO 80482"},
     wolfCreek = {name: "Wolf Creek", widget: 511, zip: 81147, address: "3821 US-160, Pagosa Springs, CO 81147"},
-    eldora = {name: "Eldora", widget: 143, zip: 80466, address: "2861 Eldora Ski Road, Nederland, CO 80466"},
-    howelson = {name:"Howelson", widget: 181, zip: 80487, address: "845 Howelsen Pkwy, Steamboat Springs, CO 80487"},
-    loveland = {name:"Loveland", widget: 220, zip: 80435, address: " I-70 Exit 216, Georgetown, CO 80435"},
-    monarch = {name:"Monarch Mountain", widget: 240, zip: 81201, address: "123 N F St, Salida, CO 81201"},
-    powderHorn = {name: "Powder Horn", widge: 329, zip: 81643, address: "48338 Powderhorn Rd, Mesa, CO 81643"},
-    purgatory = {name: "Purgatory", widget: 330, zip: 81301, address: "1 Skier Pl, Durango, CO 81301"},
-    silverton = {name: "Silverton", widget: 1435, zip: 81433, address: "6226 CR-110, Silverton, CO 81433"},
-    cooper = {name:"Ski Cooper", widget: 372, zip: 80461, address: "1101 Poplar St, Leadville, CO 80461"},
+    winterPark = {name: "Winter Park", widget: 507, zip: 80482, address: "85 Parsenn Road, Winter Park, CO 80482"},
+    telluride = {name:"Telluride", widget: 456, zip: 81435, address: "565 Mountain Village Blvd, Telluride, CO 81435"},
     steamboat = {name:"Steamboat", widget: 425, zip: 80487, address: "2305 Mt Werner Cir, Steamboat Springs, CO 80487"},
     sunlight = {name:"Sunlight Mtn", widget: 445, zip: 81601, address: "10901 County Road 117, Glenwood Springs, CO 81601"},
-    telluride = {name:"Telluride", widget: 456, zip: 81435, address: "565 Mountain Village Blvd, Telluride, CO 81435"},
+    silverton = {name: "Silverton", widget: 1435, zip: 81433, address: "6226 CR-110, Silverton, CO 81433"},    
+    monarch = {name:"Monarch Mountain", widget: 240, zip: 81201, address: "123 N F St, Salida, CO 81201"},
+    purgatory = {name: "Purgatory", widget: 330, zip: 81301, address: "1 Skier Pl, Durango, CO 81301"},
+    powderHorn = {name: "Powder Horn", widge: 329, zip: 81643, address: "48338 Powderhorn Rd, Mesa, CO 81643"},
+    loveland = {name:"Loveland", widget: 220, zip: 80435, address: " I-70 Exit 216, Georgetown, CO 80435"},
+    keystone = {name: "Keystone Resort", widget: 197, zip: 80435, address: "100+Dercum+Square+Keystone+CO+80435"},
+    howelson = {name:"Howelson", widget: 181, zip: 80487, address: "845 Howelsen Pkwy, Steamboat Springs, CO 80487"},
+    eldora = {name: "Eldora", widget: 143, zip: 80466, address: "2861 Eldora Ski Road, Nederland, CO 80466"},
     echo ={name: "Echo Mountain", widget: 1673, zip: 80452, adress: "19285 CO-103, Idaho Springs, CO 80452"},
+    crestedButte = {name: "Crested Butte", widget: 120, zip: 81225, address: "12 Snowmass Rd, Crested Butte, CO 81225" },
+    copper = {name: "Copper Mountain", widget: 113, zip: 80443, address: "209+Ten+Mile+Cir+Frisco+CO+80443"},
+    cooper = {name:"Ski Cooper", widget: 372, zip: 80461, address: "1101 Poplar St, Leadville, CO 80461"},
+    breck = {name: "Breckinridge", widget: 77, zip: 80424, address: "1599+Ski+Hill+Rd+Breckenridge+CO+80424"},
+    beaverCreek = {name: "Beaver Creek", widget: 36, zip:81620 , address: "40 Village Rd, Avon, CO 81620"},
+    aspen = {name:"Aspen", widget: 25, zip: 81612, address: "602 E Dean St, Aspen, CO 81612"},
+    arapahoe = {name: "Arapahoe Basin", widget: 20, zip: 80435, address: "28194 US-6, Dillon, CO 80435"},
 ];
 var resortAddress = "";
 var zip = 0;
@@ -28,12 +28,12 @@ var widget = 0;
 
 
 resorts.forEach(function(element){ 
-    console.log(element.name)
+    
     count =0;
-    count++
+    count++;
     if (count <= 23) {
-    var newBtn = "<button type='button' class='btn btn-dark resortbtn' value='"+ element.zip + "' id='"+ element.widget +"' name='"+ element.address +"'>"+ element.name +"</button>"
-    $("#btnDiv1").prepend(newBtn);
+        var newBtn = "<button type='button' class='btn btn-dark resortbtn mx-1' value='"+ element.zip + "' id='"+ element.widget +"' name='"+ element.address +"'>"+ element.name +"</button>"
+        $("#btnDiv1").prepend(newBtn);
     };    
 });
 
@@ -57,7 +57,7 @@ $('#address-btn').on("click", function() {
     // Replaces spaces in the user input so that it will work with the api
     var userAddress = userAddressRaw.split(' ').join('+');
     // We'll want to store this locally i think
-    $(".mapDisplay").html("<iframe width='910' height='600' frameborder='0' style='border:0'src='https://www.google.com/maps/embed/v1/directions?key=AIzaSyBJKhf4GEm0R7YyUP7XmfM2KgVF6cTdz6M&origin=" + userAddress + "&destination=" + resortAddress + "'allowfullscreen></iframe>")
+    $(".mapDisplay").attr("src", "https://www.google.com/maps/embed/v1/directions?key=AIzaSyBJKhf4GEm0R7YyUP7XmfM2KgVF6cTdz6M&origin=" + userAddress + "&destination=" + resortAddress + "allowfullscreen")
     $('.mapDisplay').show();
 
 })
@@ -65,13 +65,13 @@ $('#address-btn').on("click", function() {
 
 function homePage() {
     $("#widgetDisplay").hide();
-    
     $('#carouselResorts').show();
     $('#homepage-card').show();
     $('.mapDisplay').hide();
     $('.form-group').hide();
     $('#address-btn').hide();
-    $('#weatherBox').hide();
+    $("#weatherBox").hide();
+    $('#mapBox').hide();
 } 
 
 function infoPage() {
@@ -81,12 +81,13 @@ function infoPage() {
     $("#homepage-card").hide();
     $(".form-group").show();
     $("#address-btn").show();
-    $("#weatherBox").show();
+    $("#mapBox").show();
+    $('#weatherBox').show();
 }
 
 //Updates html to reflect widget info
 function widgetCreate(a) {
-    $("#widgetDisplay").html("<div class='ots-widget'><iframe id='o28858' width='960' height='150' border='0' frameborder='0' scrolling='no' src='https://www.onthesnow.com/widget/list?resorts=" + a + "&color=b'></iframe><p><a id='urlHide' href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a></p></div>");
+    $("#o28858").attr("src", "https://www.onthesnow.com/widget/list?resorts=" + a + "&color=b");
 }
 
 homePage();
