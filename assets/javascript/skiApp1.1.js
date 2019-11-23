@@ -41,12 +41,11 @@ var homeBtn = "<button type='button' class='btn btn-success' id = 'home-btn' nam
 $("#btnDiv2").prepend(homeBtn);
 
 // what happens when the home button is clicked
-
 $('#home-btn').on("click", function () {
     homePage();
     $(".toggler").prop("checked", false);
     // Emptying the divs so that dups are displayed if the same resort is chosen again
-    $("#widgetDisplay").empty();
+    // $("#widgetDisplay").empty();
     $(".mapDisplay").empty();
  
 });
@@ -63,9 +62,7 @@ $('#address-btn').on("click", function () {
     // We'll want to store this locally i think
     $(".mapDisplay").attr("src", "https://www.google.com/maps/embed/v1/directions?key=AIzaSyBJKhf4GEm0R7YyUP7XmfM2KgVF6cTdz6M&origin=" + userAddress + "&destination=" + resortAddress + "allowfullscreen")
     $('.mapDisplay').show();
-
-})
-
+});
 
 function homePage() {
     $('.jumbotron').show();
