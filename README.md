@@ -8,11 +8,14 @@
 ### PROJECT 1 (Colorado Ski & Board Report)
 
 ### About
-The Colorado Ski & Board Report© will provide a Colorado resident or visitor quick, informative, and detailed information based on their favorite Colorado Ski Resort. Utilizing Google Map’s API to authenticate input validation, as well as the Open Weather Map API, the program will provide best route based on forecasted weather conditions.  
+The Colorado Ski & Board Report© will provide a longtime Colorado resident, a recent transplant, or and adventurous visitor the opportunity for quick, informative, and detailed information based on their favorite Colorado Ski Resort and the quickest route to get there via the Google Maps JavaScript API. 
 
-'On The Snow' widgets are incorporated into our program to provide detailed resort information: Resort Overview, Conditions, Web Cams, Elevation, Trail Maps, Open Terrain, Lift Availability, Snow Depth, Snowfall totals as well as links to current Resort Home Pages, Lift Ticket deals, and Lodging options. 
+To authenticate input validation, we’re utilizing the Google Map’s Auto Populate API, and requiring a users email to subscribe to our weekly Newsletter.
 
-We've also implemented chart.js, a new technology that will provide comparison values based on user preferences and location.
+The ‘Open Weather Map API’, provides current weather conditions, as well as ‘On The Snow’ widgets to provide a resorts snapshot (# of Open Lifts/Runs, Snow Depth, and Fresh Snow, as well as a link for detailed resort information:
+
+We’ve also implemented ‘chart.js’, a new technology that provides a 3-day temperature forecast that is displayed in a line graph for a quick snapshot of the upcoming weather for each resort.
+
 
 ### Objective
 1. Use at least two APIs.
@@ -30,8 +33,8 @@ Demo Site: [This link will take you to the program](https://lucasaho.github.io/P
 ## Key Topics
 * API'S
 * Firebase
-* Moment
 * AJAX
+* Moment
 * Code comments
 * Console
 * Variables
@@ -49,12 +52,14 @@ Demo Site: [This link will take you to the program](https://lucasaho.github.io/P
 * Event handling
 
 ## Requirements
- * [AJAX] https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js
+ * [Firebase] https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js
+ * [AJAX] https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js
  * [Moment] https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js
- * [Bootstrap] https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
- * [jQuery] 
+ * [Bootstrap] https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.j
+ * [Chart.js] https://cdn.jsdelivr.net/npm/chart.js@2.8.0
 
 ## Build Tools
+ * Firebase
  * AJAX
  * Bootstrap
  * JavaScript
