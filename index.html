@@ -41,8 +41,6 @@
             <table>
               <tr class="header" id="btnDiv1"></tr>
               <tr class="header" id="btnDiv2"></tr>
-              <tr class="header" id="btnDiv3"></tr>
-              <tr class="header" id="btnDiv4"></tr>
             </table>
           </div>
         </div>
@@ -51,8 +49,6 @@
 
     <!-- Container for Bootstrap -->
     <div class="container">
-
-      <!-- Code for Jumbotron -->
       <!-- Code for Jumbotron -->
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
@@ -74,7 +70,13 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img src="assets/images/BeaverCreek.jpg" class="d-block w-100" alt="...">
+            <img src="assets/images/beavercreek.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <img src= "assets/images/beavercreeklogo.jpg">
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/images/breckenridge.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <div class="row">
                 <div class="col-3"></div>
@@ -117,27 +119,12 @@
       </div>
     </div>
   
-  
     <div class="container">
-      <!--Row for taking in user address-->
-      <div class="row">
-        <div class="px-3 col-12">
-          <form id="addressForm">
-            <div class="form-group">
-              <label for="address">
-                <div class="card-header" id="form-header">Enter starting address here to get directions</div>
-              </label>
-              <input class="form-control" id="userAddress" placeholder="Enter Address">
-            </div>
-            <button type="submit" id="address-btn" class="btn btn-dark">Generate Map for this Resort</button>
-          </form>
-        </div>
-      </div> 
-        <!--Row for the widgets maps and weather to be displayed-->
+      <!--Row for the widgets maps and weather to be displayed-->
       <div class="row">
         <div class="buffer-top col-12" id="widgetDisplay">
           <div class="ots-widget">
-            <iframe id="o28858" width="100%;" height="150" scrolling="no" src=""></iframe>
+            <iframe id="o28858" width="100%;" height="135" scrolling="no" src=""></iframe>
             <p class="my-n1">
               <a id='urlHide' href='https://www.onthesnow.com' target='_blank'>Powered by OnTheSnow.com</a>
             </p>
@@ -151,11 +138,26 @@
           <div class="weatherDisplay mr-5"></div>
         </div>
       </div>
+      <!--Row for taking in user address-->
+      <div class="row">
+        <div class="px-3 col-12">
+          
+        </div>
+      </div> 
       <!--Row for map API output-->
-      <div class="row mb-5 px-3">
-        <div class="bg-light col-12 mt-3" id="mapBox">
-          <strong>Driving Directions</strong>
-          <div class="col-12">
+      <div class="row px-3">
+        <div class="bg-light col-12 mt-3 text-center" id="mapBox">
+          <span class="p-4"><strong>Driving Directions</strong></span>
+          <form id="addressForm mt-n5">
+              <div class="form-group">
+                <label for="address">
+                  <div class="card-header" id="form-header">Enter starting address here to get directions</div>
+                </label>
+                <input class="form-control" id="userAddress" placeholder="Enter Address">
+            </div>
+            <button type="submit" id="address-btn" class="btn btn-dark mt-n2 mb-2">Generate Map for this Resort</button>
+          </form>
+          <div class="col-12 mx-n1 my-4">
             <iframe class="mapDisplay" width="100%;" height='600' style='border:0' src=""></iframe>
           </div>
           

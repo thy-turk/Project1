@@ -27,8 +27,7 @@ var zip = 0;
 var widget = 0;
 
 
-resorts.forEach(function(element){ 
-    
+resorts.forEach(function(element){     
     count =0;
     count++;
     if (count <= 23) {
@@ -37,10 +36,15 @@ resorts.forEach(function(element){
     };    
 });
 
+// Create Home button
+var homeBtn = "<button type='button' class='btn btn-success' id = 'home-btn' name= 'Home'>Home</button>"
+$("#btnDiv2").prepend(homeBtn);
+
 // what happens when the home button is clicked
-$('#home-btn').on("click", function() {
+
+$('#home-btn').on("click", function () {
     homePage();
-    
+    $(".toggler").prop("checked", false);
     // Emptying the divs so that dups are displayed if the same resort is chosen again
     $("#widgetDisplay").empty();
     $(".mapDisplay").empty();
@@ -48,12 +52,12 @@ $('#home-btn').on("click", function() {
 });
 
 // What happens when the address button is clicked
-$('#address-btn').on("click", function() {
+$('#address-btn').on("click", function () {
     event.preventDefault();
-    
+
     // Takes user input from the form and stores into variable
     var userAddressRaw = $('#userAddress').val().trim();
-    
+
     // Replaces spaces in the user input so that it will work with the api
     var userAddress = userAddressRaw.split(' ').join('+');
     // We'll want to store this locally i think
@@ -64,6 +68,7 @@ $('#address-btn').on("click", function() {
 
 
 function homePage() {
+    $('.jumbotron').show();
     $("#widgetDisplay").hide();
     $('#carouselResorts').show();
     $('#homepage-card').show();
@@ -95,18 +100,18 @@ homePage();
 //On click for chosen resort
 $(".resortbtn").on("click", function () {
     infoPage();
-    
+
     $('.mapDisplay').empty();
     $(".toggler").prop("checked", false);
     resortAddress = this.name;
     zip = this.value;
-    widget = this.id;  
-    
+    widget = this.id;
+
     widgetCreate(widget);
 
     //URL for weather query
-    var openWeatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?zip="+ zip +",us&units=imperial&APPID=8945840c8250c919b4821b938074f3a6";
-    
+    var openWeatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",us&units=imperial&APPID=8945840c8250c919b4821b938074f3a6";
+
     // Ajax call using the open weather api
     $.ajax({
         url: openWeatherQueryURL,
@@ -117,10 +122,10 @@ $(".resortbtn").on("click", function () {
             var weatherArray = (response.list);
             var temp = weatherArray[5].main.temp;
             var windSpd = weatherArray[5].wind.speed;
-            var weather = weatherArray[5].weather[0].description;         
-            
+            var weather = weatherArray[5].weather[0].description;
+
             //Changes HTML to reflect weather readings
-            $(".weatherDisplay").html("<div>Temperature:<span> " + temp + " degrees</span></div><div>Wind Speed:<span > "+ windSpd + " mph</span></div><div>Weather Conditions:<span > " + weather +"</span></div>");
+            $(".weatherDisplay").html("<div>Temperature:<span> " + temp + " degrees</span></div><div>Wind Speed:<span > " + windSpd + " mph</span></div><div>Weather Conditions:<span > " + weather + "</span></div>");
         });
 
 });

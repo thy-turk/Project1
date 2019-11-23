@@ -255,8 +255,14 @@ background-color: lightblue;
   margin-top: 20px;
 }
 
-#weatherBox {
-  width: 960px;
+#weatherBox {  
+  line-height: 30px;
+  font-size: 20px;
+}
+
+#mapBox {  
+  line-height: 30px;
+  font-size: 20px;
 }
 
 #urlHide {
