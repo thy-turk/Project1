@@ -66,3 +66,5 @@ Demo Site: [This link will take you to the program](https://lucasaho.github.io/P
  * jQuery
  * chart.js
  * Moment
+## Problems Faced
+* A big problem we had was finding suitable apis that were free and and also not protected by licensing. We eventually had to compromise and get our data through other apis and input methods.
